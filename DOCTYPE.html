@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #fce4ec;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        h1 { color: #d81b60; }
+        .buttons {
+            margin-top: 20px;
+            position: relative;
+            height: 50px;
+        }
+        button {
+            padding: 10px 25px;
+            font-size: 1.2rem;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        #yesBtn { background-color: #4caf50; color: white; margin-right: 10px; }
+        #noBtn { 
+            background-color: #f44336; 
+            color: white; 
+            position: absolute; 
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" id="mainCard">
+    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHYyZ3R6Zzh6bmh5bmh5bmh5bmh5bmh5bmh5bmh5bmh5bmh5JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/K97ba8G2k37KqRNG6O/giphy.gif" width="150" alt="Cute cat">
+    <h1>Will you be my Valentine?</h1>
+    <div class="buttons">
+        <button id="yesBtn">Yes</button>
+        <button id="noBtn">No</button>
+    </div>
+</div>
+
+<script>
+    const noBtn = document.getElementById('noBtn');
+    const yesBtn = document.getElementById('yesBtn');
+
+    // Make the No button run away
+    noBtn.addEventListener('mouseover', () => {
+        const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+        const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+        
+        noBtn.style.left = `${x}px`;
+        noBtn.style.top = `${y}px`;
+    });
+
+    // What happens when they click Yes
+    yesBtn.addEventListener('click', () => {
+        document.getElementById('mainCard').innerHTML = `
+            <h1>YAY! ❤️</h1>
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHYyZ3R6Zzh6bmh5bmh5bmh5bmh5bmh5bmh5bmh5bmh5bmh5JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/l41lTfuxV5WJ4r_pS/giphy.gif" width="250">
+            <p>See you on the 14th!</p>
+        `;
+    });
+</script>
+
+</body>
+</html>
