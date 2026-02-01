@@ -58,16 +58,22 @@
     const noBtn = document.getElementById('noBtn');
     const yesBtn = document.getElementById('yesBtn');
 
-    // Make the No button run away
     noBtn.addEventListener('mouseover', () => {
-        const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
-        const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+        // The "Safe Zone" padding (50px from any edge)
+        const padding = 50;
         
-        noBtn.style.left = `${x}px`;
-        noBtn.style.top = `${y}px`;
+        // Calculate available space
+        const maxX = window.innerWidth - noBtn.offsetWidth - padding;
+        const maxY = window.innerHeight - noBtn.offsetHeight - padding;
+
+        // Ensure the random number is at least 'padding' pixels away from 0
+        const randomX = Math.max(padding, Math.floor(Math.random() * maxX));
+        const randomY = Math.max(padding, Math.floor(Math.random() * maxY));
+
+        noBtn.style.left = `${randomX}px`;
+        noBtn.style.top = `${randomY}px`;
     });
 
-    // What happens when they click Yes
     yesBtn.addEventListener('click', () => {
         document.getElementById('mainCard').innerHTML = `
             <h1>YAY! ❤️</h1>
@@ -79,3 +85,4 @@
 
 </body>
 </html>
+
