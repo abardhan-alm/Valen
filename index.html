@@ -59,14 +59,14 @@
     const yesBtn = document.getElementById('yesBtn');
 
     noBtn.addEventListener('mouseover', () => {
-        // The "Safe Zone" padding (50px from any edge)
-        const padding =10 ;
+        // Reduced padding so it can go closer to the edges
+        const padding = 15; 
         
-        // Calculate available space
+        // Calculate the maximum possible coordinates
         const maxX = window.innerWidth - noBtn.offsetWidth - padding;
         const maxY = window.innerHeight - noBtn.offsetHeight - padding;
 
-        // Ensure the random number is at least 'padding' pixels away from 0
+        // Generate random positions, ensuring they don't go below the padding value
         const randomX = Math.max(padding, Math.floor(Math.random() * maxX));
         const randomY = Math.max(padding, Math.floor(Math.random() * maxY));
 
@@ -85,6 +85,7 @@
 
 </body>
 </html>
+
 
 
 
